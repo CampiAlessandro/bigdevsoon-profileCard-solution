@@ -1,0 +1,120 @@
+<html>
+
+<head>
+  <!-- Our unique tag to identify the solution -->
+  <bds />
+  <link rel="stylesheet" href="index.css" />
+  <script src="index.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BigDevSoon Challenge</title>
+
+  <!-- TailwindCSS for styling. Feel free to integrate other libraries as needed -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!-- Add your external script links here, if any -->
+</head>
+
+<body class="flex flex-col items-center justify-center min-h-screen font-['Merriweather']">
+
+  <div class="flex flex-row gap-2">
+    <div class="flex flex-col gap-2">
+      <label class="cursor-pointer">
+        <input type="radio" name="radio-preview" value="1" class="hidden peer" checked />
+        <img class="object-cover aspect-[5/7] w-24 rounded-xl border-blue-600 peer-checked:border-4"
+          src="https://imageplaceholder.net/600x400/eeeeee/131313?text=1" alt="thsirt">
+      </label>
+      <label class="cursor-pointer">
+        <input type="radio" name="radio-preview" value="2" class="hidden peer" />
+        <img class="object-cover aspect-[5/7] w-24 rounded-xl border-blue-600 peer-checked:border-4"
+          src="https://imageplaceholder.net/600x400/eeeeee/131313?text=2" alt="thsirt">
+      </label>
+      <label class="cursor-pointer">
+        <input type="radio" name="radio-preview" value="3" class="hidden peer" />
+        <img class="object-cover aspect-[5/7] w-24 rounded-xl border-blue-600 peer-checked:border-4"
+          src="https://imageplaceholder.net/600x400/eeeeee/131313?text=3" alt="thsirt">
+      </label>
+    </div>
+    <div class="rounded-xl overflow-hidden flex max-w-screen-xl">
+      <img id="displayed-image" class="object-cover aspect-[5/7] w-[32rem]" src="https://imageplaceholder.net/900x900" alt="thsirt">
+
+      <div class="flex flex-col bg-white p-16 ">
+        <!-- Headings -->
+        <p class="text-blue-500 font-bold uppercase">Polo Ralph</p>
+        <p class="text-5xl font-bold capitalize tracking-wide leading-tight mt-4">Custom Fit Polo Bear
+          Oxford Shirt</p>
+        <p class="text-gray-500 text-lg capitalize mt-6">Blue polo with a classic cut. Made of smooth and
+          soft cotton.</p>
+
+        <!-- Price Section -->
+        <div class="flex flex-col mt-9">
+          <div class="flex items-baseline gap-4">
+            <p class="font-bold text-[2.5rem] tracking-wide">$99.00</p>
+            <p class="text-blue-600 bg-blue-200 font-bold text-lg py-[2px] px-[7px] rounded-md">-25%</p>
+          </div>
+          <p class="line-through text-gray-400 text-lg font-bold tracking-wider mt-1">$132.00</p>
+        </div>
+
+        <!-- Size select -->
+        <div class="flex flex-col gap-6 mt-10">
+          <p class="font-bold uppercase tracking-wide">Choose Size</p>
+          <div class="flex space-x-4">
+            <label class="cursor-pointer">
+              <input type="radio" name="size" value="S" class="hidden peer" />
+              <span
+                class="inline-block p-4 aspect-square font-bold text-gray-900 bg-white peer-checked:bg-black peer-checked:text-white">S</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="size" value="M" class="hidden peer" checked />
+              <span
+                class="inline-block p-4 aspect-square font-bold text-gray-900 bg-white peer-checked:bg-black peer-checked:text-white">M</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="size" value="L" class="hidden peer" />
+              <span
+                class="inline-block p-4 aspect-square font-bold text-gray-900 bg-white peer-checked:bg-black peer-checked:text-white">L</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="size" value="XL" class="hidden peer" />
+              <span
+                class="inline-block p-4 aspect-square font-bold text-gray-900 bg-white peer-checked:bg-black peer-checked:text-white">XL</span>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="size" value="XXL" class="hidden peer" />
+              <span
+                class="inline-block p-4 aspect-square font-bold text-gray-900 bg-white peer-checked:bg-black peer-checked:text-white">XXL</span>
+            </label>
+          </div>
+
+          <button
+            class="self-stretch uppercase rounded-md mt-8 bg-blue-500 text-gray-200 font-bold py-4 max-w-[550px]">Add to
+            bag</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script>
+  const selectedRadio = document.querySelector('input[name="radio-preview"]:checked')
+  document.getElementById("displayed-image").src = "https://imageplaceholder.net/600x400/eeeeee/131313?text="+selectedRadio.value
+  document.querySelectorAll('input[name="radio-preview"]').forEach((radio) => {
+    radio.addEventListener('change', (event) => {
+      const selectedValue = event.target.value;
+      const displayedImage = document.getElementById('displayed-image');
+
+      // Cambia l'immagine visualizzata in base al valore selezionato
+      displayedImage.src = "https://imageplaceholder.net/600x400/eeeeee/131313?text="+selectedValue;
+    });
+  });
+
+</script>
+
+</html>
